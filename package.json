@@ -1,0 +1,32 @@
+{
+  "name": "spatialjs-room-example",
+  "version": "1.0.0",
+  "description": "Example Music Player SpatialJS, UIKit, R3f/XR, R3f",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "SpatialJS",
+    "UIKit",
+    "R3f/XR",
+    "R3f"
+  ],
+  "author": "Matthew Davis",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@react-three/drei": "^9.109.5",
+    "@react-three/fiber": "^8.17.5",
+    "@react-three/uikit": "^0.4.1",
+    "@react-three/uikit-lucide": "^0.4.1",
+    "@react-three/xr": "^6.1.1",
+    "@spatialjs/core": "^0.0.1",
+    "three": "^0.167.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  }
+}
