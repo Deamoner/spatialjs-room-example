@@ -23,6 +23,16 @@
   </a>
 </p>
 
+## Base Libraries
+
+This project is built using the following core libraries:
+
+- [SpatialJS](https://github.com/Deamoner/spatialjs) - A framework for building spatial user interfaces
+- [@spatialjs/core](https://www.npmjs.com/package/@spatialjs/core) - Core package for SpatialJS
+- [SpatialJS Documentation](https://spatialjs.dev/) - Official documentation and guides
+
+These libraries provide the foundation for creating interactive 3D spatial environments with React and Three.js.
+
 ## Getting Started
 
 1. Clone this repository
