@@ -8,24 +8,11 @@
 
 <br/>
 
-<p align="center">
-  <a href="https://npmjs.com/package/@spatialjs/core" target="_blank">
-    <img src="https://img.shields.io/npm/v/@spatialjs/core?style=flat&colorA=000000&colorB=000000" alt="NPM" />
-  </a>
-  <a href="https://npmjs.com/package/@spatialjs/core" target="_blank">
-    <img src="https://img.shields.io/npm/dt/@spatialjs/core.svg?style=flat&colorA=000000&colorB=000000" alt="NPM" />
-  </a>
-  <a href="https://twitter.com/spatialmatty" target="_blank">
-    <img src="https://img.shields.io/twitter/follow/spatialmatty?label=%40spatialmatty&style=flat&colorA=000000&colorB=000000&logo=twitter&logoColor=000000" alt="Twitter" />
-  </a>
-  <a href="https://discord.gg/tKNwtpDVJn" target="_blank">
-    <img src="https://img.shields.io/discord/1124026138465939506?style=flat&colorA=000000&colorB=000000&label=discord&logo=discord&logoColor=000000" alt="Discord" />
-  </a>
-</p>
+Built with ❤️ by [Deamoner](https://twitter.com/spatialmatty) | [Personal Site](https://mattydavis.ca/) | [YouTube](https://www.youtube.com/@mattjdavis) | [Medium](https://medium.com/@mdavis-71283) | [Discord](https://discord.gg/tKNwtpDVJn)
 
 ## Base Libraries
 
-This project is built using the following core libraries:
+This project is built using the following:
 
 - [SpatialJS](https://github.com/Deamoner/spatialjs) - A framework for building spatial user interfaces
 - [@spatialjs/core](https://www.npmjs.com/package/@spatialjs/core) - Core package for SpatialJS
@@ -266,6 +253,14 @@ const [position, setPosition] = useState([0, -0.45, 0])
     }
   }, [setWindowPosition, setWindowRotation, lastWindow])
 ```
+
+## Support
+
+For questions, bug reports, or feature requests, please open an issue on our [GitHub repository](https://github.com/Deamoner/spatialjs).
+
+---
+
+Built with ❤️ by [Deamoner](https://twitter.com/spatialmatty) | [Personal Site](https://mattydavis.ca/) | [YouTube](https://www.youtube.com/@mattjdavis) | [Medium](https://medium.com/@mdavis-71283) | [Discord](https://discord.gg/tKNwtpDVJn)
 
 
 
