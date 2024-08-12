@@ -10,6 +10,14 @@
 
 Built with ❤️ by [Deamoner](https://twitter.com/spatialmatty) | [Personal Site](https://mattydavis.ca/) | [YouTube](https://www.youtube.com/@mattjdavis) | [Medium](https://medium.com/@mdavis-71283) | [Discord](https://discord.gg/tKNwtpDVJn)
 
+## Live Demo
+
+You can try out this project live on CodeSandbox:
+
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/Deamoner/spatialjs-room-example/main?import=true)
+
+This live demo allows you to explore the interactive spatial room with the wall-jumping music player directly in your browser.
+
 ## Base Libraries
 
 This project is built using the following:
@@ -35,9 +43,8 @@ npm install
 npm run dev
 ```
 
-Now you should be able to run the completed project without issue. 
-Let's look at how we did it. 
-
+Now you should be able to run the completed project without issue.
+Let's look at how we did it.
 
 ## Project Build
 
@@ -56,6 +63,7 @@ npm install @react-three/fiber @react-three/drei @react-three/xr @react-three/ui
 ```
 
 3. Setup your Basic App with a Canvas, OrbitControls, and XR:
+
 ```typescript:src/App.tsx
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
@@ -127,9 +135,9 @@ import MusicPlayerWindow from './MusicPlayerWindow';
 const MusicPlayer: React.FC = () => {
     const abumConRef = useRef<any>(null);
     const [text, setText] = useState('')
-    const setCurrentAlbum = useAlbumStore((state) => state.setCurrentAlbum);    
+    const setCurrentAlbum = useAlbumStore((state) => state.setCurrentAlbum);
     const selectAlbum = (album: Album) => {
-        
+
         createWindow(<MusicPlayerWindow  />, {
             id: 'music-player',
             title: album.name,
@@ -140,7 +148,7 @@ const MusicPlayer: React.FC = () => {
         setCurrentAlbum(album);
     };
 
-  
+
 
     return (
         <>
@@ -151,7 +159,7 @@ const MusicPlayer: React.FC = () => {
                 </Container>
             </Card>
             <Card marginTop={75} paddingLeft={10} width="100%" height={185} justifyContent="center" flexDirection="column">
-                
+
                 <Container paddingBottom={12} scrollbarOpacity={0.5} scrollbarWidth={2} scrollbarColor={colors.mutedForeground} ref={abumConRef} width={600} height={200} alignItems="auto" justifyContent="flex-start" flexDirection="row" overflow="scroll" >
                     {albums.map((album) => (
                         <AlbumArtwork key={album.name} album={album} width={100} height={100} onClick={(e) => {
@@ -245,7 +253,7 @@ const [position, setPosition] = useState([0, -0.45, 0])
     if (lastWindow) {
       setWindowPosition(lastWindow, offsetPoint)
       setWindowRotation(lastWindow, rotation)
-      useWindowStore.getState().updateWindow(lastWindow, { 
+      useWindowStore.getState().updateWindow(lastWindow, {
         disableTiling: true,
         position: offsetPoint,
         rotation: rotation
@@ -261,11 +269,3 @@ For questions, bug reports, or feature requests, please open an issue on our [Gi
 ---
 
 Built with ❤️ by [Deamoner](https://twitter.com/spatialmatty) | [Personal Site](https://mattydavis.ca/) | [YouTube](https://www.youtube.com/@mattjdavis) | [Medium](https://medium.com/@mdavis-71283) | [Discord](https://discord.gg/tKNwtpDVJn)
-
-
-
-
-
-
-
-
