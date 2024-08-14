@@ -138,7 +138,7 @@ const MusicPlayer: React.FC = () => {
     const setCurrentAlbum = useAlbumStore((state) => state.setCurrentAlbum);
     const selectAlbum = (album: Album) => {
 
-        createWindow(<MusicPlayerWindow  />, {
+        createWindow(MusicPlayerWindow, {
             id: 'music-player',
             title: album.name,
             width: 100,

@@ -1,70 +1,79 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Container, Text, Image, Video } from '@react-three/uikit';
-import { Card } from '../../../../src/components/card';
-import { Album } from './Albums';
-import { colors } from '../theme';
+import React, { useEffect, useRef } from "react";
+import { Container, Text, Image, Video } from "@react-three/uikit";
+import { Album } from "./Albums";
+import { useAlbumStore } from "../useAlbumStore";
 
 interface AlbumWindowProps {
-    album: Album;
+  album: Album;
 }
 
 const AlbumWindow: React.FC<AlbumWindowProps> = ({ album }) => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const [currentAlbum, setCurrentAlbum] = useState(album);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { currentAlbum } = useAlbumStore();
+  const prevAlbumRef = useRef<Album | null>(null);
 
-    if(!album) return null;
+  useEffect(() => {
+    // Setup code here (e.g., start playing audio/video)
 
-    const handleUnload = () => {
-        if (videoRef.current) {
-            videoRef.current.pause();
-            videoRef.current.currentTime = 0;
-        }
+    return () => {
+      console.log("window destroyed");
+      // Cleanup code here (e.g., stop playing audio/video)
     };
+  }, []);
 
-    React.useEffect(() => {
-        return () => {
-            handleUnload();
-        };
-    }, []);
+  useEffect(() => {
+    if (
+      currentAlbum &&
+      prevAlbumRef.current &&
+      currentAlbum.name !== prevAlbumRef.current.name &&
+      videoRef.current
+    ) {
+      // @ts-ignore
+      videoRef.current.element.pause();
+      // @ts-ignore
+      //videoRef.current.element.currentTime = 0;
+    }
+    prevAlbumRef.current = currentAlbum;
+  }, [currentAlbum]);
 
-    useEffect(() => {
-        if(album.name !== currentAlbum.name) {
-            if(videoRef.current) {
-                // @ts-ignore
-                videoRef.current.element.pause();
-                // @ts-ignore
-                videoRef.current.element.currentTime = 0;
-            }
-        }
-    }, [album]);
+  if (!currentAlbum) return null;
 
-    return (
-        <>
-            <Container marginTop={55} margin="auto" width={150} height="100%" justifyContent="center" alignItems="center">
-                {currentAlbum.video ? (
-                    <Video
-                       
-                        src={currentAlbum.video}
-                        width="100%"
-                        height="75%"
-                        objectFit="cover"
-                        borderRadius={10}
-                        autoplay
-                        loop
-                        ref={videoRef}
-                    />
-                ) : (
-                    <Image
-                        src={currentAlbum.cover}
-                        width="100%"
-                        height="100%"
-                        objectFit="cover"
-                        borderRadius={10}
-                    />
-                )}
-            </Container>
-        </>
-    );
+  return (
+    <>
+      <Container
+        marginTop={55}
+        margin="auto"
+        width={150}
+        height="100%"
+        justifyContent="center"
+        alignItems="center"
+      >
+        {currentAlbum && currentAlbum.video ? (
+          <Video
+            key={album.name}
+            src={album.video}
+            width="100%"
+            height="75%"
+            objectFit="cover"
+            borderRadius={10}
+            autoplay
+            loop
+            ref={videoRef}
+          />
+        ) : (
+          currentAlbum && (
+            <Image
+              src={album.cover}
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              borderRadius={10}
+            />
+          )
+        )}
+      </Container>
+    </>
+  );
 };
 
 export default AlbumWindow;
