@@ -8,7 +8,6 @@ import { colors } from "../theme";
 import { Search } from "@react-three/uikit-lucide";
 import { useAlbumStore } from "../useAlbumStore";
 import { createWindow } from "@spatialjs/core";
-import MusicPlayerWindow from "./MusicPlayerWindow";
 import AlbumWindow from "./AlbumWindow";
 
 const MusicPlayer: React.FC = () => {
